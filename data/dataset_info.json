@@ -1,4 +1,8 @@
 {
+  "hevi": {
+    "file_name": "datasets_hevi_0918.json",
+    "formatting": "alpaca"
+  },
   "identity": {
     "file_name": "identity.json"
   },

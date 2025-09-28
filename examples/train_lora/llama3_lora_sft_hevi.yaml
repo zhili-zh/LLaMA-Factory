@@ -1,0 +1,58 @@
+## WANDB_PROJECT=hevi_finetune llamafactory-cli train examples/train_lora/llama3_lora_sft_hevi.yaml
+
+# wandb config
+report_to: wandb # [none, wandb, tensorboard, etc.]
+run_name: llama3-8B   # 每个 run 可以自定义
+
+### model
+model_name_or_path: meta-llama/Meta-Llama-3-8B-Instruct
+# model_name_or_path: Qwen/Qwen3-4B-Instruct-2507
+trust_remote_code: true
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 8
+lora_target: all
+
+### dataset
+dataset: hevi
+template: llama3
+cutoff_len: 2048
+max_samples: 1000
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+
+### output
+output_dir: saves/llama3-8b/lora/sft_hevi_eval
+# output_dir: saves/qwen3-4b/lora/sft_hevi_eval
+logging_steps: 10
+save_strategy: steps
+save_steps: 50
+save_total_limit: 2
+
+metric_for_best_model: eval_loss
+greater_is_better: false
+load_best_model_at_end: true
+
+### train
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 8
+learning_rate: 2.0e-5
+num_train_epochs: 10
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: true
+ddp_timeout: 180000000
+resume_from_checkpoint: null
+overwrite_output_dir: true
+save_safetensors: true
+
+### eval
+eval_strategy: steps
+eval_steps: 50
+val_size: 0.1         # 自动用 10% 数据做验证
+per_device_eval_batch_size: 1
+
