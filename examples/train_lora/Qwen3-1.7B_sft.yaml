@@ -7,7 +7,7 @@ do_train: true
 finetuning_type: lora
 lora_rank: 8
 lora_target: all
-dataset: hevi
+dataset: hevi_1002
 template: qwen3_nothink
 cutoff_len: 2048
 max_samples: 1000

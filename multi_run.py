@@ -14,14 +14,14 @@ WANDB_ENTITY = os.environ.get("WANDB_ENTITY", "")
 MODELS = [
     # ("google/gemma-3-4b-it", "gemma3", "4B"),
     # ("google/gemma-3-1b-it", "gemma3", "1B"),
-    ("meta-llama/Llama-3.2-1B-Instruct", "llama3", "1B"),
-    ("meta-llama/Llama-3.2-3B-Instruct", "llama3", "3B"),
-    # ("microsoft/Phi-3.5-mini-instruct", "phi", "3.5B"),
-    ("mistralai/Mistral-7B-Instruct-v0.3", "mistral", "7B"),
-    # ("Qwen/Qwen3-1.7B", "qwen3_nothink", "1.7B"),
-    # ("Qwen/Qwen3-4B-Instruct-2507", "qwen3_nothink", "4B"),
-    # ("Qwen/Qwen3-8B", "qwen3_nothink", "8B"),
-    # ("Qwen/Qwen2.5-7B-Instruct-1M", "qwen3_nothink", "7B"),
+    # ("meta-llama/Llama-3.2-1B-Instruct", "llama3", "1B"),
+    # ("meta-llama/Llama-3.2-3B-Instruct", "llama3", "3B"),
+    ("microsoft/Phi-3.5-mini-instruct", "phi", "3.5B"),
+#     ("mistralai/Mistral-7B-Instruct-v0.3", "mistral", "7B"),
+#     ("Qwen/Qwen3-1.7B", "qwen3_nothink", "1.7B"),
+#     ("Qwen/Qwen3-4B-Instruct-2507", "qwen3_nothink", "4B"),
+#     ("Qwen/Qwen3-8B", "qwen3_nothink", "8B"),
+#     ("Qwen/Qwen2.5-7B-Instruct-1M", "qwen3_nothink", "7B"),
 ]
 
 def adjust_batch(config, scale: str):
@@ -90,5 +90,31 @@ for model_id, template, scale in MODELS:
     except subprocess.CalledProcessError as e:
         print(f"❌ {model_id} failed with exit code {e.returncode}")
 
+"""
+llamafactory-cli export \
+  --model_name_or_path Qwen/Qwen3-4B-Instruct-2507 \
+  --adapter_name_or_path saves/Qwen3-4B-Instruct-2507/lora/sft \
+  --export_dir merged_models/Qwen3-4B-Instruct-2507-lora \
+  --export_size 2 \
+  --export_device cpu \
+  --export_legacy_format False
 
+llamafactory-cli export \
+  --model_name_or_path mistralai/Mistral-7B-Instruct-v0.3 \
+  --adapter_name_or_path saves/Mistral-7B-Instruct-v0.3/lora/sft/ \
+  --export_dir merged_models/Mistral-7B-Instruct-v0.3-lora \
+  --export_size 2 \
+  --export_device cpu \
+  --export_legacy_format False \
+  --template mistral
 
+llamafactory-cli export \
+  --model_name_or_path microsoft/Phi-3.5-mini-instruct \
+  --adapter_name_or_path saves/Phi-3.5-mini-instruct/lora/sft/ \
+  --export_dir merged_models/Phi-3.5-mini-instruct-lora \
+  --export_size 2 \
+  --export_device cpu \
+  --export_legacy_format False \
+  --template phi
+
+"""
