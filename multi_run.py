@@ -16,12 +16,12 @@ MODELS = [
     # ("google/gemma-3-1b-it", "gemma3", "1B"),
     ("meta-llama/Llama-3.2-1B-Instruct", "llama3", "1B"),
     ("meta-llama/Llama-3.2-3B-Instruct", "llama3", "3B"),
-    ("microsoft/Phi-3.5-mini-instruct", "phi", "3.5B"),
+    # ("microsoft/Phi-3.5-mini-instruct", "phi", "3.5B"),
     ("mistralai/Mistral-7B-Instruct-v0.3", "mistral", "7B"),
-    ("Qwen/Qwen3-1.7B", "qwen3_nothink", "1.7B"),
-    ("Qwen/Qwen3-4B-Instruct-2507", "qwen3_nothink", "4B"),
-    ("Qwen/Qwen3-8B", "qwen3_nothink", "8B"),
-    ("Qwen/Qwen2.5-7B-Instruct-1M", "qwen3_nothink", "7B"),
+    # ("Qwen/Qwen3-1.7B", "qwen3_nothink", "1.7B"),
+    # ("Qwen/Qwen3-4B-Instruct-2507", "qwen3_nothink", "4B"),
+    # ("Qwen/Qwen3-8B", "qwen3_nothink", "8B"),
+    # ("Qwen/Qwen2.5-7B-Instruct-1M", "qwen3_nothink", "7B"),
 ]
 
 def adjust_batch(config, scale: str):

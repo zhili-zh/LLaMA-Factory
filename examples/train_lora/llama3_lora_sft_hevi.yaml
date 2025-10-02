@@ -17,7 +17,7 @@ lora_rank: 8
 lora_target: all
 
 ### dataset
-dataset: hevi
+dataset: hevi_1002
 template: llama3
 cutoff_len: 2048
 max_samples: 1000
