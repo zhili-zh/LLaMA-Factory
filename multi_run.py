@@ -6,7 +6,7 @@ import yaml
 base_yaml = "examples/train_lora/llama3_lora_sft_hevi.yaml"
 
 # 指定 wandb 项目（你说的 hevi_finetune）
-WANDB_PROJECT = "hevi_finetune"
+WANDB_PROJECT = "hevi_finetune_1002"
 # 如果有团队空间可填，否则留空即可（默认个人空间）
 WANDB_ENTITY = os.environ.get("WANDB_ENTITY", "")
 
