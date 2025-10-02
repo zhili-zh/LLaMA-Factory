@@ -92,16 +92,8 @@ for model_id, template, scale in MODELS:
 
 """
 llamafactory-cli export \
-  --model_name_or_path Qwen/Qwen3-4B-Instruct-2507 \
-  --adapter_name_or_path saves/Qwen3-4B-Instruct-2507/lora/sft \
-  --export_dir merged_models/Qwen3-4B-Instruct-2507-lora \
-  --export_size 2 \
-  --export_device cpu \
-  --export_legacy_format False
-
-llamafactory-cli export \
   --model_name_or_path mistralai/Mistral-7B-Instruct-v0.3 \
-  --adapter_name_or_path saves/Mistral-7B-Instruct-v0.3/lora/sft/ \
+  --adapter_name_or_path saves/Mistral-7B-Instruct-v0.3-lora/ \
   --export_dir merged_models/Mistral-7B-Instruct-v0.3-lora \
   --export_size 2 \
   --export_device cpu \
@@ -110,11 +102,20 @@ llamafactory-cli export \
 
 llamafactory-cli export \
   --model_name_or_path microsoft/Phi-3.5-mini-instruct \
-  --adapter_name_or_path saves/Phi-3.5-mini-instruct/lora/sft/ \
+  --adapter_name_or_path saves/phi3.5-mini-lora/ \
   --export_dir merged_models/Phi-3.5-mini-instruct-lora \
+  --export_size 2 \
+  --export_device auto \
+  --export_legacy_format True \
+  --template phi
+
+llamafactory-cli export \
+  --model_name_or_path Qwen/Qwen2.5-7B-Instruct-1M \
+  --adapter_name_or_path saves/Qwen2.5-7B-Instruct-1M-lora/ \
+  --export_dir merged_models/Qwen2.5-7B-Instruct-1M-lora \
   --export_size 2 \
   --export_device cpu \
   --export_legacy_format False \
-  --template phi
+  --template qwen3_nothink
 
 """

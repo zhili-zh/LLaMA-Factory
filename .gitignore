@@ -173,6 +173,7 @@ cache/
 config/
 saves/
 output/
+merged_models/
 wandb/
 swanlog/
 generated_predictions.jsonl
