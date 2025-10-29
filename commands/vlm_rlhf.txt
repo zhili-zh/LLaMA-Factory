@@ -1,0 +1,3 @@
+
+export WANDB_PROJECT=vlm_rlhf
+nohup llamafactory-cli train examples/train_lora/qwen2_5vl_lora_dpo.yaml > logs/train_vlm.log 2>&1 &
