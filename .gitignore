@@ -172,8 +172,13 @@ om_cache/
 llamaboard_cache/
 llamaboard_config/
 saves/
+logs/
+merged_models/
 output/
 wandb/
 swanlog/
 generated_predictions.jsonl
 predictions_score.json
+
+# logs
+nohup.out
